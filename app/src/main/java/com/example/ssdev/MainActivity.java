@@ -42,12 +42,6 @@ public class MainActivity extends AppCompatActivity {
         ).toString();
         File file = new File(DIR + File.separator + "data.csv");
 
-        try {
-            file.createNewFile();
-        } catch (Exception e) {
-            Log.e("TAG", e.getMessage());
-        }
-
         Button button = (Button) findViewById(R.id.button);
         Button expBtn = (Button) findViewById(R.id.button2);
         EditText editText1 = (EditText) findViewById(R.id.editTextNumberDecimal1);
@@ -90,12 +84,5 @@ public class MainActivity extends AppCompatActivity {
                 expBtn.setEnabled(false);
             }
         });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.e("LOG", "destroy");
-
     }
 }
