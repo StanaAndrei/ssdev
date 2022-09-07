@@ -34,11 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e("LOG", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + File.separator + "test.txt");
-
 
         final String DIR = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DOWNLOADS
@@ -81,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
         expBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (latStr.length() == 0 || lonStr.length() == 0) {
-                    return;
-                }
                 try {
                     OutputStream os = new FileOutputStream(file, true);
                     OutputStreamWriter osw = new OutputStreamWriter(os);
