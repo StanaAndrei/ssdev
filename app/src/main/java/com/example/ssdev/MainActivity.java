@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
         LatLng latLng = new LatLng(Double.parseDouble(latStr), Double.parseDouble(lonStr));
-        gMap.addMarker(new MarkerOptions().position(latLng).title("location"));
+        gMap.addMarker(new MarkerOptions().position(latLng).title("selected location"));
         gMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
     }
 }
