@@ -48,31 +48,31 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         ).toString();
         File file = new File(DIR + File.separator + "data.csv");
 
-        Button button = (Button) findViewById(R.id.button);
-        Button expBtn = (Button) findViewById(R.id.button2);
-        Button showBtn = (Button) findViewById(R.id.button3);
-        EditText editText1 = (EditText) findViewById(R.id.editTextNumberDecimal1);
-        EditText editText2 = (EditText) findViewById(R.id.editTextNumberDecimal2);
-        TextView textView1 = (TextView) findViewById(R.id.textView1);
-        TextView textView2 = (TextView) findViewById(R.id.textView2);
+        Button convertBtn = findViewById(R.id.convertBtn);
+        Button expBtn = findViewById(R.id.exportBtn);
+        Button showBtn = findViewById(R.id.showBtn);
+        EditText latEText = findViewById(R.id.latEText);
+        EditText lonEText = findViewById(R.id.lonEText);
+        TextView textViewLat = findViewById(R.id.textViewLat);
+        TextView textViewLon = findViewById(R.id.textViewLon);
 
         if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (Exception e) {}
         }
-        button.setOnClickListener(new View.OnClickListener() {
+        convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                latStr = editText1.getText().toString();
-                lonStr = editText2.getText().toString();
+                latStr = latEText.getText().toString();
+                lonStr = lonEText.getText().toString();
                 if (latStr.length() == 0 || lonStr.length() == 0) {
                     return;
                 }
                 latDMS = getCoord(Float.parseFloat(latStr));
                 lonDMS = getCoord(Float.parseFloat(lonStr));
-                textView1.setText("lat: " + latDMS);
-                textView2.setText("lon: " + lonDMS);
+                textViewLat.setText("lat: " + latDMS);
+                textViewLon.setText("lon: " + lonDMS);
                 expBtn.setEnabled(true);
             }
         });
